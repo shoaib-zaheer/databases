@@ -20,7 +20,7 @@
 
 - Familiarize some theoretical concepts: information systems, databases, RDMBs, relational models, tables, records, attributes, fields and keys
 - Learn how to navigate a (SQLite) database
-- Learn how to write basic SQL queries using following statements: `SELECT`, `ORDER BY`, `WHERE`, `GROUP BY` and more
+- Learn how to write basic SQL queries using the following statements: `SELECT`, `ORDER BY`, `SELECT DISTINCT`, `WHERE`, `LIMIT`, `BETWEEN`, `LIKE`, `GROUP BY`
 - Learn how to communicate with SQLite databases in JavaScript
 
 ---
@@ -41,13 +41,13 @@ The goal is to make this a very hands-on class. Nonetheless it's important to fa
 > - [Lesson Plan Slides](https://hackyourfuture.be/databases/week-1)
 
 ### Isolate
-Check out this week's exercises [here](../isolate/week-1/EXERCISES.md).  You can study them in the [SQLite Tutorial Sandbox](https://www.sqlitetutorial.net/tryit/).
+Check out this week's exercises [here](../isolate/week-1/EXERCISES.md).
 
 ### Integrate
 
 You will be learning to use [sqlite3](https://github.com/mapbox/node-sqlite3/wiki/API), a module that allows you to query your SQLite database file.
 
-- [CLI Query Scripts](../integrate/cli-query-scripts)
+- [CLI Query Scripts](../integrate/cli-query-scripts-week-1) (week 1)
 
 ---
 ---
