@@ -9,7 +9,25 @@ SELECT
 	Artist.Name AS ArtistName
 FROM
 	Album
-	JOIN Artist ON Artist.ArtistId = Album.ArtistId;
+	LEFT JOIN Artist ON Artist.ArtistId = Album.ArtistId;
+
+--OR using USING
+
+SELECT
+	title AS AlbumTitle,
+	Artist.Name AS ArtistName
+FROM
+	Album
+	LEFT JOIN Artist USING(ArtistId);
+
+--OR using NATURAL
+
+SELECT
+	title AS AlbumTitle,
+	Artist.Name AS ArtistName
+FROM
+	Album
+	NATURAL LEFT JOIN Artist;
 ```
 </details>
 
@@ -43,7 +61,19 @@ FROM
 ```
 </details>
 
-<details><summary>4. Show all albums' title and track names</summary>
+<details><summary>4. Show all possible combinations of media type and genre a track could have; show media type name and genre name</summary>
+
+```sql
+SELECT
+	MediaType.Name,
+	Genre.Name
+FROM
+	MediaType
+	CROSS JOIN Genre;
+```
+</details>
+
+<details><summary>5. Show all albums' title and track names</summary>
 
 ```sql
 SELECT
@@ -55,7 +85,7 @@ FROM
 ```
 </details>
 
-<details><summary>5. Show all employees' full name, title and their superior's full name and title</summary>
+<details><summary>6. Show all employees' full name, title and their superior's full name and title</summary>
 
 ```sql
 SELECT
@@ -69,7 +99,7 @@ FROM
 ```
 </details>
 
-<details><summary>6. Show all employees' full name, title and their superior's full name and title only if they have a superior</summary>
+<details><summary>7. Show all employees' full name, title and their superior's full name and title only if they have a superior</summary>
 
 ```sql
 SELECT
@@ -83,7 +113,7 @@ FROM
 ```
 </details>
 
-<details><summary>7. Show the number of invoice lines' per invoice billing country</summary>
+<details><summary>8. Show the number of invoice lines' per invoice billing country</summary>
 
 ```sql
 SELECT
@@ -97,7 +127,7 @@ GROUP BY
 ```
 </details>
 
-<details><summary>8. Show the number of invoices per customer; show customers' full name</summary>
+<details><summary>9. Show the number of invoices per customer; show customers' full name</summary>
 
 ```sql
 SELECT
@@ -111,7 +141,7 @@ GROUP BY
 ```
 </details>
 
-<details><summary>9. Show the total per customer; show customers' full name and total</summary>
+<details><summary>10. Show the total per customer; show customers' full name and total</summary>
 
 ```sql
 SELECT
@@ -125,7 +155,7 @@ GROUP BY
 ```
 </details>
 
-<details><summary>10. Show the full name of the customer with the highest total</summary>
+<details><summary>11. Show the full name of the customer with the highest total</summary>
 
 ```sql
 SELECT
@@ -141,7 +171,7 @@ LIMIT 1;
 ```
 </details>
 
-<details><summary>11. Show the invoice total per employee; show employee full name and total</summary>
+<details><summary>12. Show the invoice total per employee; show employee full name and total</summary>
 
 ```sql
 SELECT
@@ -156,7 +186,7 @@ GROUP BY
 ```
 </details>
 
-<details><summary>12. Show all invoices for which the total is not equal to the total of all invoice lines' total; show invoices' id, invoices' total, invoice lines' total</summary>
+<details><summary>13. Show all invoices for which the total is not equal to the total of all invoice lines' total; show invoices' id, invoices' total, invoice lines' total</summary>
 
 ```sql
 SELECT
@@ -176,7 +206,7 @@ HAVING IsEqual = FALSE;
 </details>
 
 ## Insert, Update, Delete
-<details><summary>13. Add an employee with name Jane Doe</summary>
+<details><summary>14. Add an employee with name Jane Doe</summary>
 
 ```sql
 INSERT INTO Employee (FirstName, LastName)
@@ -184,7 +214,7 @@ INSERT INTO Employee (FirstName, LastName)
 ```
 </details>
 
-<details><summary>14. Update employee Jane Doe's title, birth date, hire date, city and country to be Sales Support Agent, 2000-06-07 00:00:00, 2020-06-07 00:00:00, Lethbridge and Canada respectively</summary>
+<details><summary>15. Update employee Jane Doe's title, birth date, hire date, city and country to be Sales Support Agent, 2000-06-07 00:00:00, 2020-06-07 00:00:00, Lethbridge and Canada respectively</summary>
 
 ```sql
 UPDATE
@@ -200,7 +230,7 @@ WHERE
 ```
 </details>
 
-<details><summary>15. Update the support rep id of all customers with country Canada to Jane Doe; then run the query of exercise 14 again</summary>
+<details><summary>16. Update the support rep id of all customers with country Canada to Jane Doe; then run the query of exercise 14 again</summary>
 
 ```sql
 UPDATE
@@ -214,7 +244,7 @@ WHERE
 ```
 </details>
 
-<details><summary>16. Add an invoice line for invoice with id 1 with track id, unit price and quantity to be 2, 0.99 and 2 respectively; then run the query of exercise 12 again</summary>
+<details><summary>17. Add an invoice line for invoice with id 1 with track id, unit price and quantity to be 2, 0.99 and 2 respectively; then run the query of exercise 12 again</summary>
 
 ```sql
 INSERT INTO InvoiceLine (InvoiceId, TrackId, UnitPrice, Quantity)
@@ -224,7 +254,7 @@ INSERT INTO InvoiceLine (InvoiceId, TrackId, UnitPrice, Quantity)
 ```
 </details>
 
-<details><summary>17. Update the invoice total of invoice 1 accordingly; run the query of exercise 11 again</summary>
+<details><summary>18. Update the invoice total of invoice 1 accordingly; run the query of exercise 11 again</summary>
 
 ```sql
 UPDATE
@@ -238,7 +268,7 @@ WHERE
 ```
 </details>
 
-<details><summary>18. Delete the previously added invoice line; then run the query of exercise 12 again</summary>
+<details><summary>19. Delete the previously added invoice line; then run the query of exercise 12 again</summary>
 
 ```sql
 DELETE FROM InvoiceLine
@@ -253,7 +283,7 @@ WHERE InvoiceLine.InvoiceLineId = '2241'; --fill in the InvoiceLineId accordingl
 ```
 </details>
 
-<details><summary>19. Again, update the invoice total of invoice 1 accordingly; then run the query of exercise 12 again</summary>
+<details><summary>20. Again, update the invoice total of invoice 1 accordingly; then run the query of exercise 12 again</summary>
 
 ```sql
 UPDATE
